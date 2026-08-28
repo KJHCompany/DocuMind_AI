@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>관리자 대시보드 — DocuMind AI</title>
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="dashboard.html" class="brand"><span class="brand-mark">D</span><span class="label">DocuMind AI</span></a>
+      <button class="sidebar-collapse-btn" id="sidebarCollapseBtn">«</button>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-title">워크스페이스</div>
+      <a href="dashboard.html"><span class="nav-ico">🧭</span><span class="label">대시보드</span></a>
+      <a href="documents.html"><span class="nav-ico">📄</span><span class="label">문서</span><span class="nav-badge" data-nav-badge="docs">–</span></a>
+      <a href="chat.html"><span class="nav-ico">💬</span><span class="label">채팅</span><span class="nav-badge" data-nav-badge="chat">–</span></a>
+      <div class="sidebar-section-title">계정</div>
+      <a href="mypage.html"><span class="nav-ico">👤</span><span class="label">마이페이지</span></a>
+      <a href="admin.html" class="active" data-admin-only><span class="nav-ico">🛡️</span><span class="label">관리자</span></a>
+    </nav>
+    <div class="sidebar-promo">
+      <div class="sidebar-promo-title">🎁 Pro 플랜으로 업그레이드</div>
+      <p>더 큰 문서, 더 긴 대화, 더 많은 토큰을 사용해보세요.</p>
+      <a href="mypage.html" class="btn">요금제 보기</a>
+    </div>
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="avatar" data-user-avatar>?</div>
+        <div class="user-chip-info">
+          <div class="user-chip-name" data-user-name>—</div>
+          <div class="user-chip-role" data-user-role>—</div>
+        </div>
+        <button class="icon-btn" data-logout title="로그아웃">⎋</button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="app-main">
+    <header class="app-topbar">
+      <div class="app-topbar-left"><h1>관리자 대시보드</h1></div>
+      <div class="app-topbar-right">
+        <span class="badge badge-role">ADMIN</span>
+        <button class="icon-btn" title="검색">🔍</button>
+        <div class="notif-wrap">
+          <button class="icon-btn" id="notifBtn">🔔<span class="notif-dot"></span></button>
+          <div class="notif-dropdown hidden" id="notifDropdown">
+            <div class="notif-dropdown-header"><span>알림</span><a href="#" id="markAllRead">모두 읽음</a></div>
+            <div id="notifList"></div>
+          </div>
+        </div>
+        <div class="user-menu-wrap">
+          <button class="user-menu-trigger" id="userMenuBtn">
+            <div class="avatar avatar-sm" data-user-avatar>?</div>
+            <span class="user-menu-name" data-user-name>—</span>
+            <span class="chevron">▾</span>
+          </button>
+          <div class="user-menu-dropdown hidden" id="userMenuDropdown">
+            <a href="mypage.html">👤 마이페이지</a>
+            <a href="admin.html" data-admin-only>🛡️ 관리자</a>
+            <button data-logout>⎋ 로그아웃</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="app-content">
+      <div id="adminGuard" class="card hidden" style="padding:20px;margin-bottom:20px;">
+        <strong>관리자 전용 화면입니다.</strong>
+        <p class="text-muted" style="margin-top:6px;">일반 사용자 계정으로는 접근할 수 없습니다. 로그인 화면에서 "관리자로 로그인"을 이용해보세요.</p>
+      </div>
+
+      <div class="stat-grid" id="adminStats"></div>
+
+      <div class="today-grid">
+        <div class="card today-card">
+          <div class="today-card-header">
+            <h3>오늘 사용 현황</h3>
+            <span class="badge badge-ready" id="growthBadge">↑ 전일 대비 —</span>
+          </div>
+          <div class="today-stats" id="todayStats"></div>
+        </div>
+        <div class="card growth-card">
+          <div class="growth-ico">📈</div>
+          <h3>성장 지표</h3>
+          <p id="growthNote">—</p>
+        </div>
+      </div>
+
+      <div class="card" style="padding:20px;">
+        <div class="admin-table-header">
+          <h3>사용자 관리</h3>
+          <div class="admin-table-controls">
+            <div class="filter-tabs" id="roleTabs">
+              <button class="active" data-role="ALL">전체</button>
+              <button data-role="회원">일반 회원</button>
+              <button data-role="관리자">관리자</button>
+            </div>
+            <input class="input docs-search" id="searchInput" placeholder="이름 또는 이메일 검색…" />
+          </div>
+        </div>
+        <p class="text-faint" id="userCount" style="margin-bottom:12px;">총 0명의 사용자</p>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>사용자</th>
+                <th>역할</th>
+                <th>문서</th>
+                <th>세션</th>
+                <th>토큰</th>
+                <th>플랜</th>
+                <th>최근 활동</th>
+                <th>상태</th>
+              </tr>
+            </thead>
+            <tbody id="adminTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/mock-data.js"></script>
+<script src="js/common.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

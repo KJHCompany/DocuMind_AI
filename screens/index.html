@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DocuMind AI — 문서를 업로드하고 AI에게 물어보세요</title>
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+<header class="topnav">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">D</span><span class="label">DocuMind AI</span></a>
+    <nav class="topnav-links">
+      <a href="#features" class="link">기능</a>
+      <a href="#how-it-works" class="link">사용 방법</a>
+      <a href="#demo" class="link">데모</a>
+      <a href="#pricing" class="link">요금제</a>
+      <a href="#faq" class="link">FAQ</a>
+    </nav>
+    <nav class="topnav-links">
+      <a href="login.html" class="link">로그인</a>
+      <a href="signup.html" class="btn btn-primary">무료로 시작하기</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 히어로 -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <span class="eyebrow">● RAG · 페이지 인용 · 실시간 스트리밍</span>
+        <h1>문서를 업로드하고<br /><span class="accent">AI에게 물어보세요.</span></h1>
+        <p class="hero-desc">
+          수백 페이지의 계약서, 매뉴얼, 논문도 몇 초 만에 이해합니다.
+          DocuMind AI는 답변마다 <strong>출처 페이지를 함께 인용</strong>해 신뢰할 수 있는 지식베이스가 되어드립니다.
+        </p>
+        <div class="hero-cta">
+          <a href="signup.html" class="btn btn-primary">무료로 시작하기</a>
+          <a href="#demo" class="btn btn-secondary">▶ 라이브 데모 보기</a>
+        </div>
+        <div class="trust-badges">
+          <span>📄 PDF 업로드 지원</span>
+          <span>🔐 JWT 인증 · 소유자 검증</span>
+          <span>🧠 pgvector 기반 벡터 검색</span>
+        </div>
+      </div>
+
+      <div class="browser-mockup">
+        <div class="browser-toolbar">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <span class="browser-breadcrumb">documind.ai / chat / session-284</span>
+        </div>
+        <div class="browser-body">
+          <div class="browser-chat">
+            <div class="demo-msg demo-msg-user">2024_사업보고서.pdf에서 연구개발비 비중은?</div>
+            <div class="demo-msg demo-msg-assistant">
+              매출 대비 R&amp;D 비중은 <strong>14.2%</strong>이며, 전년 대비 2.1%p 상승했습니다.
+              <div class="demo-citation">📎 사업보고서 p.42</div>
+            </div>
+          </div>
+          <div class="browser-pdf">
+            <span class="pdf-src-label">참조 문서 · P.42</span>
+            § 4.2 연구개발 활동<br />
+            당사는 지속적인 기술 우위 확보를 위해<br />
+            <span class="pdf-highlight">연구개발비를 매출 대비 14.2% 수준으로 집행</span>하였으며,<br />
+            이는 전년 대비 <span class="pdf-highlight">2.1%p 상승한 수치</span>입니다.<br />
+            주요 투자 영역은 차세대 검색 엔진, …
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 핵심 기능 -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">CORE FEATURES</span>
+        <h2>문서를 이해하는 AI,<br />제대로 작동하려면 이런 게 필요합니다.</h2>
+        <p>DocuMind AI는 단순한 챗봇이 아닙니다. 파싱, 검색, 답변, 인용까지 문서 워크플로 전체를 하나로 묶은 지식베이스 플랫폼입니다.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card card">
+          <div class="icon-chip icon-chip-indigo">⬆️</div>
+          <h3>드래그 앤 드롭 업로드</h3>
+          <p class="text-muted">PDF 문서를 끌어다 놓으면 즉시 업로드되어 파싱 대기열에 등록됩니다.</p>
+        </div>
+        <div class="feature-card card">
+          <div class="icon-chip icon-chip-green">🧩</div>
+          <h3>자동 청킹 &amp; 임베딩</h3>
+          <p class="text-muted">문서를 의미 단위로 나눠 벡터화하고, 파싱 상태(준비완료·파싱중·실패)를 실시간으로 표시합니다.</p>
+        </div>
+        <div class="feature-card card">
+          <div class="icon-chip icon-chip-amber">💬</div>
+          <h3>출처 인용 답변</h3>
+          <p class="text-muted">답변마다 근거가 된 페이지를 인용해, 클릭 한 번으로 원문 위치로 이동·하이라이팅됩니다.</p>
+        </div>
+        <div class="feature-card card">
+          <div class="icon-chip icon-chip-purple">⚡</div>
+          <h3>실시간 스트리밍</h3>
+          <p class="text-muted">SSE 기반으로 토큰이 생성되는 순간부터 답변이 흘러나와 긴 요약도 지루하지 않게 확인합니다.</p>
+        </div>
+        <div class="feature-card card">
+          <div class="icon-chip icon-chip-teal">🗂️</div>
+          <h3>세션 관리</h3>
+          <p class="text-muted">문서·주제별로 채팅 세션을 만들고, 과거 대화를 언제든 다시 열어 이어갈 수 있습니다.</p>
+        </div>
+        <div class="feature-card card">
+          <div class="icon-chip icon-chip-rose">🔒</div>
+          <h3>소유자 기반 접근 제어</h3>
+          <p class="text-muted">JWT 인증과 리소스 소유권(owner_id) 검증으로 본인 문서·세션에만 접근할 수 있습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 동작 방식 -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <div class="how-head">
+        <div class="section-head">
+          <span class="eyebrow">HOW IT WORKS</span>
+          <h2>4단계로 끝나는<br />문서 → 답변 파이프라인</h2>
+        </div>
+        <p class="how-head-note">복잡한 설정 없이 문서만 올리면, 나머지는 DocuMind가 알아서 처리합니다.</p>
+      </div>
+      <div class="steps-row">
+        <div class="step-card card">
+          <div class="step-num">01</div>
+          <div class="icon-chip icon-chip-indigo">⬆️</div>
+          <h3>문서 업로드</h3>
+          <p>PDF 파일을 끌어다 놓으면 자동으로 업로드 대기열에 등록됩니다.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card card">
+          <div class="step-num">02</div>
+          <div class="icon-chip icon-chip-green">🧠</div>
+          <h3>AI가 파싱 &amp; 인덱싱</h3>
+          <p>텍스트 추출 → 청크 분할 → 임베딩 저장까지 자동으로 처리합니다.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card card">
+          <div class="step-num">03</div>
+          <div class="icon-chip icon-chip-amber">💬</div>
+          <h3>세션 열고 질문</h3>
+          <p>문서 하나를 골라 채팅 세션을 만들고 자유롭게 질문하세요.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card card">
+          <div class="step-num">04</div>
+          <div class="icon-chip icon-chip-purple">📎</div>
+          <h3>출처와 함께 답변</h3>
+          <p>답변에 달린 인용을 클릭하면 우측 뷰어에서 해당 페이지가 하이라이팅됩니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 라이브 프리뷰 -->
+  <section id="demo" class="live-preview">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">LIVE PREVIEW</span>
+        <h2>실제 화면으로 미리 보는 DocuMind AI</h2>
+        <p>문서 목록, 채팅 세션, PDF 뷰어까지 — 실제 화면에서 만나게 될 인터페이스를 미리 살펴보세요.</p>
+      </div>
+
+      <div class="segmented-wrap">
+        <div class="segmented" id="previewTabs">
+          <button class="active" data-tab="docs">📁 문서 목록</button>
+          <button data-tab="chat">💬 채팅</button>
+          <button data-tab="viewer">📄 뷰어 인용</button>
+        </div>
+      </div>
+
+      <div class="preview-panel card">
+        <!-- 문서 목록 탭 -->
+        <div class="preview-body" data-panel="docs">
+          <div class="preview-col" style="flex:1;">
+            <div class="preview-col-label">문서</div>
+            <div class="preview-doc-mini"><span>📄</span><span>2024_사업보고서.pdf</span><span class="badge badge-ready" style="margin-left:auto;">준비완료</span></div>
+            <div class="preview-doc-mini"><span>📄</span><span>RAG_파이프라인_설계문서.pdf</span><span class="badge badge-ready" style="margin-left:auto;">준비완료</span></div>
+            <div class="preview-doc-mini"><span>📄</span><span>3분기_재무보고서.pdf</span><span class="badge badge-parsing" style="margin-left:auto;">파싱중</span></div>
+          </div>
+        </div>
+
+        <!-- 채팅 탭 -->
+        <div class="preview-body hidden" data-panel="chat">
+          <div class="preview-col" style="flex:1;">
+            <div class="preview-col-label">채팅 · 사업보고서 세션</div>
+            <div class="preview-chat">
+              <div class="demo-msg demo-msg-user">주요 위험요인 3가지를 요약해줘.</div>
+              <div class="demo-msg demo-msg-assistant">
+                환율 변동성, 원자재 가격 상승, 신규 규제 리스크가 주요 위험요인으로 언급됩니다.
+                <div class="demo-citation">📎 사업보고서 p.55</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 뷰어 인용 탭 -->
+        <div class="preview-body hidden" data-panel="viewer">
+          <div class="preview-col">
+            <div class="preview-col-label">답변</div>
+            <div class="demo-msg demo-msg-assistant" style="max-width:100%;">
+              당사의 2024년 R&amp;D 투자 규모는 매출 대비 14.2%로, 전년 대비 2.1%p 상승했습니다.
+              <div class="citation-badges">
+                <span class="citation-badge">📎 사업보고서 p.42</span>
+                <span class="citation-badge">📎 IR자료 p.11</span>
+              </div>
+            </div>
+          </div>
+          <div class="preview-col">
+            <div class="preview-col-label"><span>PDF Viewer · Page 42</span><span>🔍 100%</span></div>
+            <div class="pdf-mini">
+              § 4.2 연구개발 활동<br />
+              당사는 지속적인 기술 우위 확보를 위해<br />
+              <span class="pdf-highlight">연구개발비를 매출 대비 14.2% 수준으로 집행</span>하였으며,<br />
+              이는 전년 대비 <span class="pdf-highlight">2.1%p 상승한 수치</span>입니다.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 기술 스택 하이라이트 -->
+  <section class="tech-band">
+    <div class="container tech-band-grid">
+      <div class="tech-band-item">
+        <div class="tech-headline">SSE</div>
+        <div class="tech-caption">실시간 토큰 스트리밍</div>
+      </div>
+      <div class="tech-band-item">
+        <div class="tech-headline">pgvector</div>
+        <div class="tech-caption">코사인 유사도 벡터 검색</div>
+      </div>
+      <div class="tech-band-item">
+        <div class="tech-headline">JWT</div>
+        <div class="tech-caption">소유자 기반 권한 검증</div>
+      </div>
+      <div class="tech-band-item">
+        <div class="tech-headline">Top-K</div>
+        <div class="tech-caption">근거 문단 인용</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 포트폴리오 하이라이트 -->
+  <section class="highlights">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">PROJECT HIGHLIGHTS</span>
+        <h2>이 프로젝트가 증명하는 것</h2>
+        <p>2인 팀이 기능(도메인) 단위로 API부터 화면까지 전 과정을 직접 설계·구현한 RAG 풀스택 프로젝트입니다.</p>
+      </div>
+      <div class="highlight-grid">
+        <div class="highlight-card card">
+          <span class="badge badge-role">FULL-STACK</span>
+          <h3>기능 단위 풀스택 개발</h3>
+          <p class="text-muted">담당 도메인(문서 관리 / 질의응답·운영)을 API 설계부터 화면 구현까지 A-Z로 주도했습니다.</p>
+        </div>
+        <div class="highlight-card card">
+          <span class="badge badge-role">AI PAIR-PROGRAMMING</span>
+          <h3>Claude Code 협업 워크플로</h3>
+          <p class="text-muted">CLAUDE.md 규칙 파일과 보일러플레이트 생성으로 개발 속도를 높이는 AI 협업 방식을 적용했습니다.</p>
+        </div>
+        <div class="highlight-card card">
+          <span class="badge badge-role">SCALABLE SCHEMA</span>
+          <h3>확장을 고려한 스키마 설계</h3>
+          <p class="text-muted">rerankScore 등 향후 Re-ranker 파인튜닝(Phase 2)을 염두에 둔 필드를 미리 확보했습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 요금제(베타 안내) -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">PRICING</span>
+        <h2>지금은 무료 베타로 운영 중입니다</h2>
+        <p>정식 요금제는 아직 정해지지 않았습니다. 베타 기간에는 모든 기능을 제한 없이 사용해보실 수 있어요.</p>
+      </div>
+      <div class="pricing-card card">
+        <ul>
+          <li>✅ PDF 문서 업로드 및 파싱</li>
+          <li>✅ RAG 기반 질의응답 (출처 인용 포함)</li>
+          <li>✅ 대화 세션 무제한 저장</li>
+        </ul>
+        <a href="signup.html" class="btn btn-primary btn-block">무료로 시작하기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>자주 묻는 질문</h2>
+      </div>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item card open">
+          <button class="faq-question">
+            <span>어떤 형식의 파일을 지원하나요?</span>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="faq-answer">
+            <p>현재는 PDF 업로드를 지원합니다. 다른 포맷(DOCX, TXT 등) 지원은 Phase 2 이후 확장을 검토하고 있습니다.</p>
+          </div>
+        </div>
+        <div class="faq-item card">
+          <button class="faq-question">
+            <span>업로드한 문서는 어디에 저장되나요?</span>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="faq-answer">
+            <p>문서 메타정보와 청크 벡터는 PostgreSQL(pgvector 확장)에 저장되며, 본인 소유의 문서만 조회·삭제할 수 있습니다.</p>
+          </div>
+        </div>
+        <div class="faq-item card">
+          <button class="faq-question">
+            <span>답변의 출처는 어떻게 표시되나요?</span>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="faq-answer">
+            <p>벡터 검색으로 찾은 근거 청크가 답변에 인용으로 첨부되며, 인용을 클릭하면 원본 PDF의 해당 페이지로 이동해 하이라이팅됩니다.</p>
+          </div>
+        </div>
+        <div class="faq-item card">
+          <button class="faq-question">
+            <span>실시간 스트리밍은 어떻게 동작하나요?</span>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="faq-answer">
+            <p>백엔드가 StreamingResponse로 토큰 단위 SSE를 전송하고, 프론트엔드는 EventSource로 수신하며 실시간 렌더링합니다.</p>
+          </div>
+        </div>
+        <div class="faq-item card">
+          <button class="faq-question">
+            <span>관리자 대시보드가 있나요?</span>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="faq-answer">
+            <p>네, 관리자 권한 계정은 전체 문서·세션·토큰 사용량을 한 화면에서 모니터링할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 최종 CTA -->
+  <div class="container cta-dark-wrap">
+    <div class="cta-dark">
+      <h2>첫 문서를 지금 올리고<br />AI 지식베이스를 만들어보세요.</h2>
+      <p>카드 등록 없이 무료로 시작할 수 있어요.</p>
+      <div class="cta-dark-actions">
+        <a href="signup.html" class="btn btn-primary">무료로 시작하기 →</a>
+        <a href="#demo" class="btn btn-outline-light">라이브 데모 보기</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand"><span class="brand-mark">D</span><span class="label">DocuMind AI</span></a>
+        <p>문서를 이해하는 AI. 답변엔 항상 출처가 붙습니다.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>제품</h4>
+          <a href="#features">기능</a>
+          <a href="#how-it-works">사용 방법</a>
+          <a href="#demo">데모</a>
+          <a href="#pricing">요금제</a>
+        </div>
+        <div class="footer-col">
+          <h4>계정</h4>
+          <a href="login.html">로그인</a>
+          <a href="signup.html">회원가입</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 DocuMind AI · 포트폴리오 프로토타입</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

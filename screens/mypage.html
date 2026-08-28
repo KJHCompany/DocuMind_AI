@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>마이페이지 — DocuMind AI</title>
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/mypage.css" />
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="dashboard.html" class="brand"><span class="brand-mark">D</span><span class="label">DocuMind AI</span></a>
+      <button class="sidebar-collapse-btn" id="sidebarCollapseBtn">«</button>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-title">워크스페이스</div>
+      <a href="dashboard.html"><span class="nav-ico">🧭</span><span class="label">대시보드</span></a>
+      <a href="documents.html"><span class="nav-ico">📄</span><span class="label">문서</span><span class="nav-badge" data-nav-badge="docs">–</span></a>
+      <a href="chat.html"><span class="nav-ico">💬</span><span class="label">채팅</span><span class="nav-badge" data-nav-badge="chat">–</span></a>
+      <div class="sidebar-section-title">계정</div>
+      <a href="mypage.html" class="active"><span class="nav-ico">👤</span><span class="label">마이페이지</span></a>
+      <a href="admin.html" data-admin-only><span class="nav-ico">🛡️</span><span class="label">관리자</span></a>
+    </nav>
+    <div class="sidebar-promo">
+      <div class="sidebar-promo-title">🎁 Pro 플랜으로 업그레이드</div>
+      <p>더 큰 문서, 더 긴 대화, 더 많은 토큰을 사용해보세요.</p>
+      <a href="mypage.html" class="btn">요금제 보기</a>
+    </div>
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="avatar" data-user-avatar>?</div>
+        <div class="user-chip-info">
+          <div class="user-chip-name" data-user-name>—</div>
+          <div class="user-chip-role" data-user-role>—</div>
+        </div>
+        <button class="icon-btn" data-logout title="로그아웃">⎋</button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="app-main">
+    <header class="app-topbar">
+      <div class="app-topbar-left"><h1>마이페이지</h1></div>
+      <div class="app-topbar-right">
+        <button class="icon-btn" title="검색">🔍</button>
+        <div class="notif-wrap">
+          <button class="icon-btn" id="notifBtn">🔔<span class="notif-dot"></span></button>
+          <div class="notif-dropdown hidden" id="notifDropdown">
+            <div class="notif-dropdown-header"><span>알림</span><a href="#" id="markAllRead">모두 읽음</a></div>
+            <div id="notifList"></div>
+          </div>
+        </div>
+        <div class="user-menu-wrap">
+          <button class="user-menu-trigger" id="userMenuBtn">
+            <div class="avatar avatar-sm" data-user-avatar>?</div>
+            <span class="user-menu-name" data-user-name>—</span>
+            <span class="chevron">▾</span>
+          </button>
+          <div class="user-menu-dropdown hidden" id="userMenuDropdown">
+            <a href="mypage.html">👤 마이페이지</a>
+            <a href="admin.html" data-admin-only>🛡️ 관리자</a>
+            <button data-logout>⎋ 로그아웃</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="app-content">
+      <div class="mypage-grid">
+        <div class="mypage-col-left">
+          <div class="card mypage-profile-card">
+            <div class="avatar avatar-xl" id="bigAvatar">?</div>
+            <div class="mypage-name" id="displayName">—</div>
+            <div class="text-faint" id="displayEmail">—</div>
+            <div class="mypage-badges">
+              <span class="badge badge-plan-pro" id="planBadge">Pro 플랜</span>
+              <span class="badge badge-role" id="roleBadge">일반 회원</span>
+            </div>
+            <div class="text-faint" style="margin-top:10px;font-size:12px;" id="joinedAt">가입일 —</div>
+          </div>
+
+          <div class="card mypage-usage-card">
+            <h3>사용량</h3>
+            <div class="usage-row">
+              <div class="usage-row-label"><span>토큰 사용</span><span class="value" id="tokenUsageLabel">–</span></div>
+              <div class="usage-track"><div class="usage-fill" id="tokenUsageFill"></div></div>
+            </div>
+            <div class="usage-row">
+              <div class="usage-row-label"><span>문서 용량</span><span class="value" id="docUsageLabel">–</span></div>
+              <div class="usage-track"><div class="usage-fill success" id="docUsageFill"></div></div>
+            </div>
+            <a href="#" class="btn btn-secondary btn-block" id="upgradeBtn">플랜 업그레이드</a>
+          </div>
+        </div>
+
+        <div class="mypage-col-right">
+          <div class="card mypage-section-card">
+            <h3>계정 정보</h3>
+            <form id="profileForm">
+              <div class="mypage-field-row">
+                <div class="field">
+                  <label for="pName">이름</label>
+                  <input class="input" id="pName" type="text" required />
+                </div>
+                <div class="field">
+                  <label for="pCompany">회사</label>
+                  <input class="input" id="pCompany" type="text" placeholder="회사명" />
+                </div>
+              </div>
+              <div class="field">
+                <label for="pEmail">이메일</label>
+                <input class="input" id="pEmail" type="email" disabled />
+                <span class="hint">이메일은 로그인에 사용되며, 변경 시 이메일 인증이 필요합니다.</span>
+              </div>
+              <button type="submit" class="btn btn-primary">변경사항 저장</button>
+            </form>
+          </div>
+
+          <div class="card mypage-section-card">
+            <h3>보안</h3>
+            <form id="securityForm">
+              <div class="field">
+                <label for="newPassword">새 비밀번호</label>
+                <input class="input" id="newPassword" type="password" placeholder="새 비밀번호 입력" minlength="8" />
+              </div>
+              <div class="field">
+                <label for="newPasswordConfirm">비밀번호 확인</label>
+                <input class="input" id="newPasswordConfirm" type="password" placeholder="비밀번호 재입력" minlength="8" />
+              </div>
+              <button type="submit" class="btn btn-secondary">비밀번호 변경</button>
+            </form>
+          </div>
+
+          <div class="card danger-zone">
+            <h3>위험 구역</h3>
+            <p>계정과 모든 데이터(문서, 채팅 기록)를 영구 삭제합니다. 이 작업은 되돌릴 수 없습니다.</p>
+            <button class="btn btn-danger" id="deleteAccountBtn">계정 삭제</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/mock-data.js"></script>
+<script src="js/common.js"></script>
+<script src="js/mypage.js"></script>
+</body>
+</html>

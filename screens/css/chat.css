@@ -1,0 +1,439 @@
+/* 채팅 세션 목록 + 채팅 상세(Split-View) 화면 전용 스타일 */
+
+.session-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.session-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  cursor: pointer;
+}
+
+.session-item:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.session-item-main {
+  min-width: 0;
+}
+
+.session-item-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.pinned-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-warning);
+  background: var(--color-warning-bg);
+  padding: 2px 8px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.session-item-title {
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.session-item-question {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.session-item-meta {
+  font-size: 12px;
+  color: var(--color-text-faint);
+  display: flex;
+  gap: 10px;
+}
+
+.session-item-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.session-item-time {
+  font-size: 12px;
+  color: var(--color-text-faint);
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.picker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.picker-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.picker-item:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+/* ---------- Split View 채팅 화면 ---------- */
+.chat-shell {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.chat-pane {
+  flex: 1.15;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  border-right: 1px solid var(--color-border);
+}
+
+.pdf-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  background: #f1f5f9;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.msg-row {
+  display: flex;
+  gap: 10px;
+  max-width: 82%;
+}
+
+.msg-row.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.msg-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.msg-sender-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.msg-sender-row .badge {
+  font-size: 10px;
+  padding: 1px 8px;
+}
+
+.cite-line {
+  font-size: 12px;
+  color: var(--color-text-faint);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.msg-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+
+.msg-row.user .msg-avatar {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.msg-bubble {
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  background: #f1f5f9;
+  border-bottom-left-radius: 4px;
+}
+
+.msg-row.user .msg-bubble {
+  background: var(--color-primary);
+  color: #fff;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: 4px;
+}
+
+.msg-bubble .cursor {
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  background: var(--color-text-muted);
+  margin-left: 2px;
+  vertical-align: -2px;
+  animation: blink 0.9s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.reset-highlight-row {
+  text-align: center;
+  padding: 0 20px 4px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-primary);
+  padding: 4px 8px;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+.quick-questions {
+  padding: 10px 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--color-border);
+  background: #fff;
+}
+
+.qq-label {
+  font-size: 12px;
+  color: var(--color-text-faint);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.qq-chip {
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-text-muted);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.qq-chip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+  background: var(--color-primary-light);
+}
+
+.chat-input-bar {
+  padding: 12px 20px;
+  display: flex;
+  gap: 10px;
+  background: #fff;
+}
+
+.chat-input-bar input {
+  flex: 1;
+}
+
+.chat-input-hint {
+  padding: 0 20px 14px;
+  font-size: 11.5px;
+  color: var(--color-text-faint);
+  background: #fff;
+  text-align: center;
+}
+
+/* PDF 뷰어 패널 */
+.pdf-toolbar {
+  height: var(--topnav-height);
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.pdf-page-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.pdf-zoom {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.pdf-zoom button {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-text-muted);
+}
+
+.pdf-body-wrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+.pdf-canvas-wrap {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.pdf-thumb-strip {
+  width: 44px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  border-left: 1px solid var(--color-border);
+  background: #fff;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.pdf-thumb-item {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-text-faint);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pdf-thumb-item:hover {
+  border-color: var(--color-primary);
+}
+
+.pdf-thumb-item.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.pdf-page {
+  width: 100%;
+  max-width: 460px;
+  min-height: 600px;
+  background: #fff;
+  box-shadow: var(--shadow-md);
+  border-radius: 4px;
+  padding: 36px 32px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.9;
+}
+
+.pdf-page .pdf-page-num {
+  position: absolute;
+}
+
+.pdf-highlight {
+  background: #fef08a;
+  padding: 1px 3px;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px #facc15;
+  animation: flash-highlight 1.6s ease 1;
+}
+
+@keyframes flash-highlight {
+  0% {
+    box-shadow: 0 0 0 4px #facc15;
+  }
+  100% {
+    box-shadow: 0 0 0 2px #facc15;
+  }
+}
+
+@media (max-width: 980px) {
+  .chat-shell {
+    flex-direction: column;
+  }
+  .chat-pane,
+  .pdf-pane {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+}

@@ -1,0 +1,77 @@
+/* 마이페이지 화면 전용 스타일 */
+
+.mypage-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.mypage-profile-card {
+  padding: 26px;
+  text-align: center;
+}
+
+.avatar-xl {
+  width: 64px;
+  height: 64px;
+  font-size: 22px;
+  margin: 0 auto 14px;
+}
+
+.mypage-name {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.mypage-badges {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.mypage-usage-card {
+  padding: 22px;
+  margin-top: 16px;
+}
+
+.mypage-usage-card h3 {
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.mypage-usage-card .btn {
+  margin-top: 6px;
+}
+
+.mypage-section-card {
+  padding: 26px;
+  margin-bottom: 16px;
+}
+
+.mypage-section-card:last-child {
+  margin-bottom: 0;
+}
+
+.mypage-section-card h3 {
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.mypage-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 860px) {
+  .mypage-grid {
+    grid-template-columns: 1fr;
+  }
+  .mypage-field-row {
+    grid-template-columns: 1fr;
+  }
+}

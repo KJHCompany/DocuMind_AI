@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>로그인 — DocuMind AI</title>
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+<div class="auth-split">
+  <div class="auth-visual">
+    <a href="index.html" class="brand"><span class="brand-mark">D</span><span class="label">DocuMind AI</span></a>
+    <div class="auth-visual-mid">
+      <h1>문서를 업로드하고<br /><span class="accent">AI에게 물어보세요</span></h1>
+      <p>답변마다 정확한 출처 페이지를 인용해주는 대화형 지식베이스 플랫폼. 문서의 모든 정보가 당신의 손안에.</p>
+      <div class="auth-visual-badges">
+        <span>✅ 정확한 인용</span>
+        <span>✅ 실시간 스트리밍</span>
+        <span>✅ 보안 우선</span>
+      </div>
+    </div>
+    <div class="auth-visual-footer">© 2026 DocuMind AI. All rights reserved.</div>
+  </div>
+
+  <div class="auth-form-side">
+    <div class="auth-form-card">
+      <h1>환영합니다 👋</h1>
+      <p class="sub">DocuMind AI에 로그인하세요.</p>
+
+      <div id="authError" class="auth-error hidden"></div>
+
+      <div class="demo-login-label">데모 로그인 (임시)</div>
+      <div class="demo-login-btns">
+        <button type="button" class="btn btn-primary btn-block" id="demoUserBtn">👤 일반 회원으로 로그인</button>
+        <button type="button" class="btn btn-secondary btn-block" id="demoAdminBtn">🛡️ 관리자로 로그인</button>
+      </div>
+
+      <div class="auth-divider">또는</div>
+
+      <form id="loginForm">
+        <div class="field">
+          <label for="email">이메일</label>
+          <input class="input" type="email" id="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label for="password">비밀번호</label>
+          <input class="input" type="password" id="password" placeholder="••••••••" required />
+        </div>
+        <div class="auth-form-row">
+          <label class="auth-checkbox"><input type="checkbox" checked /> 로그인 상태 유지</label>
+          <a href="#">비밀번호 찾기</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">로그인</button>
+      </form>
+
+      <div class="auth-footer-link">
+        계정이 없으신가요? <a href="signup.html">회원가입</a>
+      </div>
+
+      <p class="auth-note">
+        지금은 데모 모드로, 버튼을 누르면 바로 대시보드로 이동합니다. 백엔드 연결 후 실제 인증으로 전환됩니다.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

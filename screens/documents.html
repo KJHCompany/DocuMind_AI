@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>문서 목록 — DocuMind AI</title>
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/documents.css" />
+</head>
+<body>
+
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="dashboard.html" class="brand"><span class="brand-mark">D</span><span class="label">DocuMind AI</span></a>
+      <button class="sidebar-collapse-btn" id="sidebarCollapseBtn">«</button>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-title">워크스페이스</div>
+      <a href="dashboard.html"><span class="nav-ico">🧭</span><span class="label">대시보드</span></a>
+      <a href="documents.html" class="active"><span class="nav-ico">📄</span><span class="label">문서</span><span class="nav-badge" data-nav-badge="docs">–</span></a>
+      <a href="chat.html"><span class="nav-ico">💬</span><span class="label">채팅</span><span class="nav-badge" data-nav-badge="chat">–</span></a>
+      <div class="sidebar-section-title">계정</div>
+      <a href="mypage.html"><span class="nav-ico">👤</span><span class="label">마이페이지</span></a>
+      <a href="admin.html" data-admin-only><span class="nav-ico">🛡️</span><span class="label">관리자</span></a>
+    </nav>
+    <div class="sidebar-promo">
+      <div class="sidebar-promo-title">🎁 Pro 플랜으로 업그레이드</div>
+      <p>더 큰 문서, 더 긴 대화, 더 많은 토큰을 사용해보세요.</p>
+      <a href="mypage.html" class="btn">요금제 보기</a>
+    </div>
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="avatar" data-user-avatar>?</div>
+        <div class="user-chip-info">
+          <div class="user-chip-name" data-user-name>—</div>
+          <div class="user-chip-role" data-user-role>—</div>
+        </div>
+        <button class="icon-btn" data-logout title="로그아웃">⎋</button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="app-main">
+    <header class="app-topbar">
+      <div class="app-topbar-left"><h1>문서</h1></div>
+      <div class="app-topbar-right">
+        <button class="btn btn-primary" id="openUploadModal">+ 문서 업로드</button>
+        <button class="icon-btn" title="검색">🔍</button>
+        <div class="notif-wrap">
+          <button class="icon-btn" id="notifBtn">🔔<span class="notif-dot"></span></button>
+          <div class="notif-dropdown hidden" id="notifDropdown">
+            <div class="notif-dropdown-header"><span>알림</span><a href="#" id="markAllRead">모두 읽음</a></div>
+            <div id="notifList"></div>
+          </div>
+        </div>
+        <div class="user-menu-wrap">
+          <button class="user-menu-trigger" id="userMenuBtn">
+            <div class="avatar avatar-sm" data-user-avatar>?</div>
+            <span class="user-menu-name" data-user-name>—</span>
+            <span class="chevron">▾</span>
+          </button>
+          <div class="user-menu-dropdown hidden" id="userMenuDropdown">
+            <a href="mypage.html">👤 마이페이지</a>
+            <a href="admin.html" data-admin-only>🛡️ 관리자</a>
+            <button data-logout>⎋ 로그아웃</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="app-content">
+      <div class="docs-count" id="docsCount">총 0개의 문서</div>
+
+      <div class="docs-toolbar">
+        <div class="filter-tabs" id="filterTabs">
+          <button class="active" data-filter="ALL">전체</button>
+          <button data-filter="READY">준비완료</button>
+          <button data-filter="PARSING">파싱중</button>
+          <button data-filter="FAILED">실패</button>
+        </div>
+        <input class="input docs-search" id="docsSearch" placeholder="문서 이름 검색…" />
+      </div>
+
+      <div id="docGrid" class="doc-grid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="uploadModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>문서 업로드</h3>
+      <button class="icon-btn" id="closeUploadModal">✕</button>
+    </div>
+
+    <div class="dropzone" id="dropzone">
+      <div class="dropzone-ico">⬆️</div>
+      <p><strong>파일을 드래그하거나 클릭하여 선택</strong></p>
+      <span class="text-faint">PDF, DOCX, PPTX, TXT 지원 · 최대 100MB</span>
+    </div>
+
+    <div id="selectedFileRow" class="selected-file-row hidden">
+      <span class="ico">📄</span>
+      <span id="selectedFileName">document.pdf</span>
+      <button class="icon-btn" id="clearSelectedFile" type="button">✕</button>
+    </div>
+
+    <div id="uploadProgress" class="upload-progress hidden">
+      <div class="upload-file-name" id="uploadFileName">document.pdf</div>
+      <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+      <span class="text-faint" id="progressLabel">업로드 중… 0%</span>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn btn-secondary" id="cancelUpload">취소</button>
+      <button class="btn btn-primary" id="startUploadBtn" disabled>업로드 시작</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/mock-data.js"></script>
+<script src="js/common.js"></script>
+<script src="js/documents.js"></script>
+</body>
+</html>

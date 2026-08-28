@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>회원가입 — DocuMind AI</title>
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+<div class="auth-split">
+  <div class="auth-visual">
+    <a href="index.html" class="brand"><span class="brand-mark">D</span><span class="label">DocuMind AI</span></a>
+    <div class="auth-visual-mid">
+      <h1>문서를 업로드하고<br /><span class="accent">AI에게 물어보세요</span></h1>
+      <p>답변마다 정확한 출처 페이지를 인용해주는 대화형 지식베이스 플랫폼. 지금 시작하세요.</p>
+      <div class="auth-visual-badges">
+        <span>✅ 정확한 인용</span>
+        <span>✅ 실시간 스트리밍</span>
+        <span>✅ 보안 우선</span>
+      </div>
+    </div>
+    <div class="auth-visual-footer">© 2026 DocuMind AI. All rights reserved.</div>
+  </div>
+
+  <div class="auth-form-side">
+    <div class="auth-form-card">
+      <h1>새 계정 만들기</h1>
+      <p class="sub">DocuMind AI를 시작해보세요.</p>
+
+      <div id="authError" class="auth-error hidden"></div>
+
+      <form id="signupForm">
+        <div class="field">
+          <label for="name">이름</label>
+          <input class="input" type="text" id="name" placeholder="이름을 입력하세요" required />
+        </div>
+        <div class="field">
+          <label for="email">이메일</label>
+          <input class="input" type="email" id="email" placeholder="name@company.com" required />
+        </div>
+        <div class="field">
+          <label for="company">회사 (선택)</label>
+          <input class="input" type="text" id="company" placeholder="회사명" />
+        </div>
+        <div class="field">
+          <label for="password">비밀번호</label>
+          <input class="input" type="password" id="password" placeholder="8자 이상" required minlength="8" />
+        </div>
+        <div class="field">
+          <label for="passwordConfirm">비밀번호 확인</label>
+          <input class="input" type="password" id="passwordConfirm" placeholder="비밀번호 재입력" required minlength="8" />
+        </div>
+        <div class="auth-form-row">
+          <label class="auth-checkbox"><input type="checkbox" id="agree" required /> <a href="#">이용약관 및 개인정보처리방침</a>에 동의합니다.</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">회원가입</button>
+      </form>
+
+      <div class="auth-footer-link">
+        이미 계정이 있으신가요? <a href="login.html">로그인</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
